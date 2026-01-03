@@ -17,7 +17,8 @@ nohup cloudflared tunnel run --token "$CF_TUNNEL" > ~/tunnel.log 2>&1 &
 nohup cloudflared access smb --hostname mac_smb_445.cicy.de5.net --url 127.0.0.1:4445 > ~/smb.log 2>&1 &
 
 ## jupyter
-killall jupyter
+pkill -f jupyter
+
 nohup jupyter lab \
   --ip=127.0.0.1 \
   --port=8888 \
