@@ -1,7 +1,3 @@
-
-bash <(curl -fsSL https://raw.githubusercontent.com/cicybot/cloudflare-tunnel-proxy/refs/heads/main/install-cloudflared.sh)
-
-
 sudo apt install fswatch cifs-utils smbclient -y
 pip install jupyter
 
