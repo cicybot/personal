@@ -13,9 +13,9 @@ nohup cloudflared tunnel run --token "$CF_TUNNEL" > ~/tunnel.log 2>&1 &
 docker rm -f 3proxy
 docker run --name 3proxy --rm -d -p "8082:3128/tcp" ghcr.io/tarampampam/3proxy:1
 
-
+docker rm -f redis
 docker run -itd \
-  --name redis-test \
+  --name redis \
   -p 6379:6379 \
   redis \
   redis-server --requirepass $CICY_PASSWORD
