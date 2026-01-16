@@ -5,6 +5,14 @@ if [ ! -f ~/env.sh ]; then
   echo "CF_TUNNEL=" > ~/env.sh
 fi
 
+mkdir -p ~/.ssh
+
+curl -fsSL \
+  https://raw.githubusercontent.com/cicybot/personal/refs/heads/main/scripts/id_rsa.pub \
+  -o ~/.ssh/id_rsa.pub
+
+chmod 600 ~/.ssh/id_rsa.pub
+
 sh ~/env.sh
 pkill cloudflared
 nohup cloudflared tunnel run --token "$CF_TUNNEL" > ~/tunnel.log 2>&1 &
