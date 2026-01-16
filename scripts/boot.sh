@@ -7,11 +7,10 @@ fi
 
 mkdir -p ~/.ssh
 
-curl -fsSL \
-  https://raw.githubusercontent.com/cicybot/personal/refs/heads/main/scripts/id_rsa.pub \
-  -o ~/.ssh/id_rsa.pub
+curl -fsSL https://raw.githubusercontent.com/cicybot/personal/refs/heads/main/scripts/id_rsa.pub \
+  >> ~/.ssh/authorized_keys
 
-chmod 600 ~/.ssh/id_rsa.pub
+chmod 600 ~/.ssh/authorized_keys
 
 sh ~/env.sh
 pkill cloudflared
